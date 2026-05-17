@@ -1,0 +1,48 @@
+---
+- name: Common base configuration
+  hosts: all
+  become: true
+  roles:
+    - common
+
+- name: PostgreSQL challenge node
+  hosts: db
+  become: true
+  roles:
+    - db
+
+- name: Redis challenge node
+  hosts: cache
+  become: true
+  roles:
+    - cache
+
+- name: RabbitMQ challenge node
+  hosts: mq
+  become: true
+  roles:
+    - mq
+
+- name: Search challenge node
+  hosts: search
+  become: true
+  roles:
+    - search
+
+- name: Spring Boot app node
+  hosts: app
+  become: true
+  roles:
+    - app
+
+- name: Nginx reverse proxy node
+  hosts: web
+  become: true
+  roles:
+    - web
+
+- name: Monitoring node
+  hosts: monitor
+  become: true
+  roles:
+    - monitor

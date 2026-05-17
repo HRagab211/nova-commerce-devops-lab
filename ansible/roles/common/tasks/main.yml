@@ -1,0 +1,12 @@
+---
+# Role: common
+# Challenge mode TODOs:
+# - Install only the packages required for this role.
+# - Create system users, config files, service units, and firewall rules.
+# - Make the role idempotent.
+# - Add handlers and templates when needed.
+# - Do not hardcode secrets in production-like work.
+
+- name: Print role challenge hint
+  ansible.builtin.debug:
+    msg: "Complete the common role for Nova Commerce DevOps Lab."

@@ -1,0 +1,9 @@
+project_name: nova-commerce-devops-lab
+app_user: novaapp
+app_port: 8080
+postgres_db: nova_commerce
+postgres_user: nova
+postgres_password: nova_secret
+redis_port: 6379
+rabbitmq_user: nova
+rabbitmq_password: nova_secret

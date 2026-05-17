@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: nova-commerce-devops-lab
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/nova_commerce}
+    username: ${DB_USERNAME:nova}
+    password: ${DB_PASSWORD:nova_secret}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+        format_sql: true
+  flyway:
+    enabled: true
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:nova}
+    password: ${RABBITMQ_PASSWORD:nova_secret}
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 2s
+
+server:
+  port: ${SERVER_PORT:8080}
+
+lab:
+  api-key: ${LAB_API_KEY:devops-lab-key}
+  rabbitmq:
+    enabled: ${LAB_RABBITMQ_ENABLED:false}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus,env,loggers
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: when_authorized
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+logging:
+  level:
+    com.hossam.novacommerce: INFO
